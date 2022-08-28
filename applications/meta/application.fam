@@ -23,7 +23,7 @@ App(
         "nfc",
         "subghz",
         "bad_usb",
-        "u2f",
+        # "u2f",
         "elf_loader",
     ],
 )
@@ -49,7 +49,7 @@ App(
         # "APPS_SentrySafe",
         "APPS_SpectrumAnalyzer",
         "APPS_WAVPlayer",
-        "APPS_FlipFrid",
+        # "APPS_FlipFrid",
     ],
 )
 
@@ -61,12 +61,12 @@ App(
         "GAME_2048",
         # "GAME_Arkanoid",
         "GAME_Dice",
-        "GAME_DOOM",
+        # "GAME_DOOM",
         # "GAME_FlappyBird",
         # "GAME_MontyHall",
         # "GAME_Raycast",
         "GAME_Snake",
-        "GAME_tama_p1",
+        # "GAME_tama_p1",
         "GAME_Tetris",
         # "GAME_TicTacToe",
         # "GAME_VideoPoker",
