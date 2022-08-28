@@ -138,7 +138,7 @@ App(
         "GAME_MontyHall",
         "GAME_Raycast",
         "GAME_Snake",
-        "GAME_tama_p1",
+        "GAME_TAMA_P1",
         "GAME_Tanks",
         "GAME_Tetris",
         "GAME_TicTacToe",
