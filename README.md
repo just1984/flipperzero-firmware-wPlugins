@@ -13,13 +13,7 @@
 - - iButton
 - Added FAP Loader
 - Got Symbols Mapping
-- Memory changes leave me waiting to see what will work for FAP Loader since currently it throws this error:
-- - 2022-08-27 22:13:24,033 [WARNING] Expected LFS size is too small (~3 pages)
-- - 2022-08-27 22:13:24,033 [WARNING] Memory layout looks suspicious
-- - 2022-08-27 22:13:24,033 [ERROR] You might brick you device into a state in which you'd need an SWD programmer to fix it.
-- - 2022-08-27 22:13:24,033 [ERROR] Please confirm that you REALLY want to do that with --I-understand-what-I-am-doing=yes
-- Feel free to PR fixes if you got them, otherwise waiting for the "memory pills" to get updated to the branch
-
+- Now to get FAPs working
 
 <table width="100%" border="0" cellspacing="0">
   <tr> <td colspan=2> <h3>This software is for experimental purposes only and is not meant for any illegal activity/purposes. We do not condone illegal activity and strongly encourage keeping transmissions to legal/valid uses allowed by law.</h3> </td> </tr>
