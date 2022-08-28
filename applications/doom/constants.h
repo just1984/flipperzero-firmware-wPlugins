@@ -36,7 +36,7 @@ const uint8_t SOUND_PIN = 9; // do not change, belongs to used timer
 #define MAX_RENDER_DEPTH 12
 #define MAX_SPRITE_DEPTH 8
 
-#define ZBUFFER_SIZE SCREEN_WIDTH / Z_RES_DIVIDER
+#define ZBUFFER_SIZE SCN_WIDTH_DOOM / Z_RES_DIVIDER
 
 // Level
 #define LEVEL_WIDTH_BASE 6
@@ -77,10 +77,10 @@ const uint8_t SOUND_PIN = 9; // do not change, belongs to used timer
 #define GUN_MAX_DAMAGE 15
 
 // display
-const uint8_t SCREEN_WIDTH = 128;
-const uint8_t SCREEN_HEIGHT = 64;
-const uint8_t HALF_WIDTH = SCREEN_WIDTH / 2;
+const uint8_t SCN_WIDTH_DOOM = 128;
+const uint8_t SCN_HEIGHT_DOOM = 64;
+const uint8_t HALF_WIDTH = SCN_WIDTH_DOOM / 2;
 const uint8_t RENDER_HEIGHT = 56; // raycaster working height (the rest is for the hud)
-const uint8_t HALF_HEIGHT = SCREEN_HEIGHT / 2;
+const uint8_t HALF_HEIGHT = SCN_HEIGHT_DOOM / 2;
 
 #endif

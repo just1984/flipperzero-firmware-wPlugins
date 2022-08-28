@@ -119,7 +119,7 @@ void drawTextSpace(int8_t x, int8_t y, char* txt, uint8_t space, Canvas* const c
         pos += CHAR_WIDTH + space;
 
         // shortcut on end of screen
-        if(pos > SCREEN_WIDTH) return;
+        if(pos > SCN_WIDTH_DOOM) return;
     }
 }
 
@@ -163,7 +163,7 @@ void drawSprite(
             uint16_t byte_offset = sprite_offset + sy * byte_width + sx / 8;
 
             // Don't draw out of screen
-            if(x + tx < 0 || x + tx >= SCREEN_WIDTH) {
+            if(x + tx < 0 || x + tx >= SCN_WIDTH_DOOM) {
                 continue;
             }
 
@@ -185,8 +185,8 @@ void drawSprite(
 }
 
 void drawPixel(int8_t x, int8_t y, bool color, bool raycasterViewport, Canvas* const canvas) {
-    if(x < 0 || x >= SCREEN_WIDTH || y < 0 ||
-       y >= (raycasterViewport ? RENDER_HEIGHT : SCREEN_HEIGHT)) {
+    if(x < 0 || x >= SCN_WIDTH_DOOM || y < 0 ||
+       y >= (raycasterViewport ? RENDER_HEIGHT : SCN_HEIGHT_DOOM)) {
         return;
     }
     if(color)
@@ -248,8 +248,8 @@ bool getGradientPixel(uint8_t x, uint8_t y, uint8_t i) {
 }
 
 void fadeScreen(uint8_t intensity, bool color, Canvas* const canvas) {
-    for(uint8_t x = 0; x < SCREEN_WIDTH; x++) {
-        for(uint8_t y = 0; y < SCREEN_HEIGHT; y++) {
+    for(uint8_t x = 0; x < SCN_WIDTH_DOOM; x++) {
+        for(uint8_t y = 0; y < SCN_HEIGHT_DOOM; y++) {
             if(getGradientPixel(x, y, intensity)) drawPixel(x, y, color, false, canvas);
         }
     }

@@ -454,8 +454,8 @@ void renderMap(
     PluginState* const plugin_state) {
     UID last_uid = 0; // NOT SURE ?
 
-    for(uint8_t x = 0; x < SCREEN_WIDTH; x += RES_DIVIDER) {
-        double camera_x = 2 * (double)x / SCREEN_WIDTH - 1;
+    for(uint8_t x = 0; x < SCN_WIDTH_DOOM; x += RES_DIVIDER) {
+        double camera_x = 2 * (double)x / SCN_WIDTH_DOOM - 1;
         double ray_x = plugin_state->player.dir.x + plugin_state->player.plane.x * camera_x;
         double ray_y = plugin_state->player.dir.y + plugin_state->player.plane.y * camera_x;
         uint8_t map_x = (uint8_t)plugin_state->player.pos.x;
@@ -610,7 +610,7 @@ void renderEntities(double view_height, Canvas* const canvas, PluginState* const
         // don´t try to render if outside of screen
         // doing this pre-shortcut due int16 -> int8 conversion makes out-of-screen
         // values fit into the screen space
-        if(sprite_screen_x < -HALF_WIDTH || sprite_screen_x > SCREEN_WIDTH + HALF_WIDTH) {
+        if(sprite_screen_x < -HALF_WIDTH || sprite_screen_x > SCN_WIDTH_DOOM + HALF_WIDTH) {
             continue;
         }
 
@@ -743,10 +743,10 @@ void renderStats(Canvas* const canvas, PluginState* plugin_state) {
 void loopIntro(Canvas* const canvas) {
     canvas_draw_icon(
         canvas,
-        (SCREEN_WIDTH - BMP_LOGO_WIDTH) / 2,
-        (SCREEN_HEIGHT - BMP_LOGO_HEIGHT) / 3,
+        (SCN_WIDTH_DOOM - BMP_LOGO_WIDTH) / 2,
+        (SCN_HEIGHT_DOOM - BMP_LOGO_HEIGHT) / 3,
         &I_logo_inv);
-    drawTextSpace(SCREEN_WIDTH / 2 - 25, SCREEN_HEIGHT * .8, "PRESS FIRE", 1, canvas);
+    drawTextSpace(SCN_WIDTH_DOOM / 2 - 25, SCN_HEIGHT_DOOM * .8, "PRESS FIRE", 1, canvas);
 }
 
 static void render_callback(Canvas* const canvas, void* ctx) {
@@ -839,7 +839,7 @@ static void doom_game_update_timer_callback(FuriMessageQueue* event_queue) {
 static void doom_game_tick(PluginState* const plugin_state) {
     if(plugin_state->scene == GAME_PLAY) {
         fps();
-        memset(display_buf, 0, SCREEN_WIDTH * (RENDER_HEIGHT / 8));
+        memset(display_buf, 0, SCN_WIDTH_DOOM * (RENDER_HEIGHT / 8));
         //player is alive
         if(plugin_state->player.health > 0) {
             if(plugin_state->up) {
