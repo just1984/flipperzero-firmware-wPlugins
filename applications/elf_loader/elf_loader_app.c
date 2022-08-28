@@ -10,9 +10,9 @@
 #define TAG "elf_loader_app"
 
 int32_t elf_loader_app(void* p) {
-    Storage* storage = furi_record_open(RECORD_STORAGE);
-    DialogsApp* dialogs = furi_record_open(RECORD_DIALOGS);
-    Gui* gui = furi_record_open(RECORD_GUI);
+    Storage* storage = furi_record_open("storage");
+    DialogsApp* dialogs = furi_record_open("dialogs");
+    Gui* gui = furi_record_open("gui");
 
     string_t elf_name, error_message;
 
@@ -32,7 +32,7 @@ int32_t elf_loader_app(void* p) {
         if(p) {
             string_init_set(elf_name, (const char*)p);
         } else {
-            string_init_set(elf_name, "/ext/apps");
+            string_init_set(elf_name, EXT_PATH("apps"));
             if(!dialog_file_browser_show(dialogs, elf_name, elf_name, ".fap", true, NULL, false)) {
                 load_success = true;
                 break;
@@ -46,30 +46,30 @@ int32_t elf_loader_app(void* p) {
         FlipperApplicationPreloadStatus preload_res =
             flipper_application_preload(app, string_get_cstr(elf_name));
         if(preload_res != FlipperApplicationPreloadStatusSuccess) {
-            string_printf(error_message, "preload failed: %d", preload_res);
+            const char* err_msg = flipper_application_preload_status_to_string(preload_res);
+            string_printf(error_message, "Preload failed: %s", err_msg);
             FURI_LOG_E(
-                TAG,
-                "ELF Loader failed to preload %s (code %d)",
-                string_get_cstr(elf_name),
-                preload_res);
+                TAG, "ELF Loader failed to preload %s: %s", string_get_cstr(elf_name), err_msg);
             break;
         }
 
         FURI_LOG_I(TAG, "ELF Loader is mapping");
         FlipperApplicationLoadStatus load_status = flipper_application_map_to_memory(app);
         if(load_status != FlipperApplicationLoadStatusSuccess) {
-            string_printf(error_message, "load failed: %d", load_status);
+            const char* err_msg = flipper_application_load_status_to_string(load_status);
+            string_printf(error_message, "Load failed: %s", err_msg);
             FURI_LOG_E(
                 TAG,
-                "ELF Loader failed to map to memory %s (code %d)",
+                "ELF Loader failed to map to memory %s: %s",
                 string_get_cstr(elf_name),
-                load_status);
+                err_msg);
             break;
         }
 
         FURI_LOG_I(TAG, "ELF Loader is staring app");
 
         FuriThread* thread = flipper_application_spawn(app, NULL);
+        furi_thread_start(thread);
         furi_thread_join(thread);
 
         load_success = true;
@@ -102,8 +102,8 @@ int32_t elf_loader_app(void* p) {
     view_dispatcher_free(view_dispatcher);
 
     string_clear(elf_name);
-    furi_record_close(RECORD_GUI);
-    furi_record_close(RECORD_DIALOGS);
-    furi_record_close(RECORD_STORAGE);
+    furi_record_close("gui");
+    furi_record_close("dialogs");
+    furi_record_close("storage");
     return 0;
 }

@@ -2,10 +2,13 @@
 
 #include "elf.h"
 #include "flipper_application.h"
+#include <m-dict.h>
 
 #ifdef __cplusplus
 extern "C" {
 #endif
+
+DICT_DEF2(RelocationAddressCache, int, M_DEFAULT_OPLIST, Elf32_Addr, M_DEFAULT_OPLIST)
 
 /**
  * Callable elf entry type
@@ -39,6 +42,7 @@ struct FlipperApplication {
     ELFSection_t bss;
 
     FuriThread* thread;
+    RelocationAddressCache_t relocation_cache;
 };
 
 typedef enum {
@@ -54,11 +58,12 @@ typedef enum {
     FoundRelData = (1 << 9),
     FoundRelBss = (1 << 10),
     FoundFappManifest = (1 << 11),
+    FoundDebugLink = (1 << 12),
     FoundValid = FoundSymTab | FoundStrTab | FoundFappManifest,
     FoundExec = FoundValid | FoundText,
     FoundGdbSection = FoundText | FoundRodata | FoundData | FoundBss,
     FoundAll = FoundSymTab | FoundStrTab | FoundText | FoundRodata | FoundData | FoundBss |
-               FoundRelText | FoundRelRodata | FoundRelData | FoundRelBss
+               FoundRelText | FoundRelRodata | FoundRelData | FoundRelBss | FoundDebugLink,
 } FindFlags_t;
 
 bool flipper_application_load_elf_headers(FlipperApplication* e, const char* path);

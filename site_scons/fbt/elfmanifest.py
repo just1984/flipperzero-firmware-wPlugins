@@ -47,7 +47,9 @@ class ElfManifestV1:
 
 
 def assemble_manifest_data(
-    app_manifest: FlipperApplication, hardware_target: int, sdk_version
+    app_manifest: FlipperApplication,
+    hardware_target: int,
+    sdk_version,
 ):
     image_data = b""
     if app_manifest.fapp_icon:

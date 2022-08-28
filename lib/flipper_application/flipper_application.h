@@ -28,6 +28,9 @@ typedef enum {
     FlipperApplicationLoadStatusMissingImports,
 } FlipperApplicationLoadStatus;
 
+const char* flipper_application_preload_status_to_string(FlipperApplicationPreloadStatus status);
+const char* flipper_application_load_status_to_string(FlipperApplicationLoadStatus status);
+
 typedef struct FlipperApplication FlipperApplication;
 
 typedef struct {
@@ -36,10 +39,10 @@ typedef struct {
 } FlipperApplicationMemoryMapEntry;
 
 typedef struct {
-    const char name[FAP_MANIFEST_MAX_APP_NAME_LENGTH];
-    uint32_t version;
-    FlipperApplicationMemoryMapEntry* entries;
     uint32_t mmap_entry_count;
+    FlipperApplicationMemoryMapEntry* mmap_entries;
+    uint32_t debug_link_size;
+    uint8_t* debug_link;
 } FlipperApplicationState;
 
 FlipperApplication*
@@ -58,6 +61,8 @@ FlipperApplicationLoadStatus flipper_application_map_to_memory(FlipperApplicatio
 const FlipperApplicationState* flipper_application_get_state(FlipperApplication* app);
 
 FuriThread* flipper_application_spawn(FlipperApplication* app, void* args);
+
+void const* flipper_application_get_entry_address(FlipperApplication* app);
 
 #ifdef __cplusplus
 }

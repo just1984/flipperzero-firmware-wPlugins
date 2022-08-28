@@ -3,11 +3,15 @@
 
 #define TAG "fapp"
 
+/* For debugger access to app state */
+FlipperApplication* last_loaded_app = NULL;
+
 FlipperApplication*
     flipper_application_alloc(Storage* storage, const ElfApiInterface* api_interface) {
     FlipperApplication* app = malloc(sizeof(FlipperApplication));
     app->api_interface = api_interface;
     app->fd = storage_file_alloc(storage);
+    app->thread = NULL;
     return app;
 }
 
@@ -17,9 +21,14 @@ void flipper_application_free(FlipperApplication* app) {
         furi_thread_free(app->thread);
     }
 
-    if(app->state.entries) {
-        free(app->state.entries);
-        app->state.entries = NULL;
+    last_loaded_app = NULL;
+
+    if(app->state.debug_link_size) {
+        free(app->state.debug_link);
+    }
+
+    if(app->state.mmap_entries) {
+        free(app->state.mmap_entries);
     }
 
     ELFSection_t* sections[] = {&app->text, &app->rodata, &app->data, &app->bss};
@@ -58,6 +67,7 @@ const FlipperApplicationManifest* flipper_application_get_manifest(FlipperApplic
 }
 
 FlipperApplicationLoadStatus flipper_application_map_to_memory(FlipperApplication* app) {
+    last_loaded_app = app;
     return flipper_application_load_sections(app);
 }
 
@@ -77,6 +87,39 @@ FuriThread* flipper_application_spawn(FlipperApplication* app, void* args) {
     furi_thread_set_callback(app->thread, (entry_t*)app->entry);
     furi_thread_set_context(app->thread, args);
 
-    furi_thread_start(app->thread);
     return app->thread;
+}
+
+void const* flipper_application_get_entry_address(FlipperApplication* app) {
+    return (void*)app->entry;
+}
+
+static const char* preload_status_strings[] = {
+    [FlipperApplicationPreloadStatusSuccess] = "Success",
+    [FlipperApplicationPreloadStatusUnspecifiedError] = "Unknown error",
+    [FlipperApplicationPreloadStatusInvalidFile] = "Invalid file",
+    [FlipperApplicationPreloadStatusInvalidManifest] = "Invalid file manifest",
+    [FlipperApplicationPreloadStatusApiMismatch] = "API version mismatch",
+    [FlipperApplicationPreloadStatusTargetMismatch] = "Hardware target mismatch",
+};
+
+static const char* load_status_strings[] = {
+    [FlipperApplicationLoadStatusSuccess] = "Success",
+    [FlipperApplicationLoadStatusUnspecifiedError] = "Unknown error",
+    [FlipperApplicationLoadStatusNoFreeMemory] = "Out of memory",
+    [FlipperApplicationLoadStatusMissingImports] = "Found unsatisfied imports",
+};
+
+const char* flipper_application_preload_status_to_string(FlipperApplicationPreloadStatus status) {
+    if(status >= COUNT_OF(preload_status_strings) || preload_status_strings[status] == NULL) {
+        return "Unknown error";
+    }
+    return preload_status_strings[status];
+}
+
+const char* flipper_application_load_status_to_string(FlipperApplicationLoadStatus status) {
+    if(status >= COUNT_OF(load_status_strings) || load_status_strings[status] == NULL) {
+        return "Unknown error";
+    }
+    return load_status_strings[status];
 }
