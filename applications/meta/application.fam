@@ -127,6 +127,7 @@ App(
         "APPS_WAVPlayer",
         "GAME_2048",
         "GAME_Arkanoid",
+        # "INTAPP_Chess",
         "INTAPP_Chip8",
         "GAME_Dice",
         "GAME_DOOM",
