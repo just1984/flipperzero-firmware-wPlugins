@@ -415,7 +415,7 @@ static void make_move(uint8_t file1, uint8_t rank1, uint8_t file2, uint8_t rank2
     move2str(white_move_str, game, game->moveListLen - 1);
     notify_click();
     black_move_str[0] = 0;
-    anim = furi_hal_get_tick();
+    anim = furi_hal_os_tick();
     thinking = true;
 }
 
