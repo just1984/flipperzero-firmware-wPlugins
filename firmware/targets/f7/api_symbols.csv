@@ -634,20 +634,20 @@ Function,-,cfree,void,void*
 Function,-,clearerr,void,FILE*
 Function,-,clearerr_unlocked,void,FILE*
 Function,+,cli_add_command,void,"Cli*, const char*, CliCommandFlag, CliCallback, void*"
-Function,+,cli_alloc,Cli*,
+Function,-,cli_alloc,Cli*,
 Function,+,cli_cmd_interrupt_received,_Bool,Cli*
 Function,+,cli_delete_command,void,"Cli*, const char*"
 Function,+,cli_getc,char,Cli*
 Function,+,cli_is_connected,_Bool,Cli*
 Function,+,cli_nl,void,
 Function,+,cli_print_usage,void,"const char*, const char*, const char*"
-Function,+,cli_putc,void,"Cli*, char"
+Function,-,cli_putc,void,"Cli*, char"
 Function,+,cli_read,size_t,"Cli*, uint8_t*, size_t"
 Function,+,cli_read_timeout,size_t,"Cli*, uint8_t*, size_t, uint32_t"
-Function,+,cli_reset,void,Cli*
+Function,-,cli_reset,void,Cli*
 Function,+,cli_session_close,void,Cli*
 Function,+,cli_session_open,void,"Cli*, void*"
-Function,+,cli_stdout_callback,void,"void*, const char*, size_t"
+Function,-,cli_stdout_callback,void,"void*, const char*, size_t"
 Function,+,cli_write,void,"Cli*, const uint8_t*, size_t"
 Function,-,copysign,double,"double, double"
 Function,-,copysignf,float,"float, float"
@@ -937,19 +937,19 @@ Function,+,furi_hal_bt_get_key_storage_buff,void,"uint8_t**, uint16_t*"
 Function,-,furi_hal_bt_get_radio_stack,FuriHalBtStack,
 Function,+,furi_hal_bt_get_rssi,float,
 Function,+,furi_hal_bt_get_transmitted_packets,uint32_t,
-Function,+,furi_hal_bt_hid_consumer_key_press,_Bool,uint16_t
-Function,+,furi_hal_bt_hid_consumer_key_release,_Bool,uint16_t
-Function,+,furi_hal_bt_hid_consumer_key_release_all,_Bool,
-Function,+,furi_hal_bt_hid_kb_press,_Bool,uint16_t
-Function,+,furi_hal_bt_hid_kb_release,_Bool,uint16_t
-Function,+,furi_hal_bt_hid_kb_release_all,_Bool,
-Function,+,furi_hal_bt_hid_mouse_move,_Bool,"int8_t, int8_t"
-Function,+,furi_hal_bt_hid_mouse_press,_Bool,uint8_t
-Function,+,furi_hal_bt_hid_mouse_release,_Bool,uint8_t
-Function,+,furi_hal_bt_hid_mouse_release_all,_Bool,
+Function,-,furi_hal_bt_hid_consumer_key_press,_Bool,uint16_t
+Function,-,furi_hal_bt_hid_consumer_key_release,_Bool,uint16_t
+Function,-,furi_hal_bt_hid_consumer_key_release_all,_Bool,
+Function,-,furi_hal_bt_hid_kb_press,_Bool,uint16_t
+Function,-,furi_hal_bt_hid_kb_release,_Bool,uint16_t
+Function,-,furi_hal_bt_hid_kb_release_all,_Bool,
+Function,-,furi_hal_bt_hid_mouse_move,_Bool,"int8_t, int8_t"
+Function,-,furi_hal_bt_hid_mouse_press,_Bool,uint8_t
+Function,-,furi_hal_bt_hid_mouse_release,_Bool,uint8_t
+Function,-,furi_hal_bt_hid_mouse_release_all,_Bool,
 Function,-,furi_hal_bt_hid_mouse_scroll,_Bool,int8_t
-Function,+,furi_hal_bt_hid_start,void,
-Function,+,furi_hal_bt_hid_stop,void,
+Function,-,furi_hal_bt_hid_start,void,
+Function,-,furi_hal_bt_hid_stop,void,
 Function,-,furi_hal_bt_init,void,
 Function,+,furi_hal_bt_is_active,_Bool,
 Function,+,furi_hal_bt_is_alive,_Bool,
@@ -959,11 +959,11 @@ Function,+,furi_hal_bt_lock_core2,void,
 Function,+,furi_hal_bt_nvm_sram_sem_acquire,void,
 Function,+,furi_hal_bt_nvm_sram_sem_release,void,
 Function,+,furi_hal_bt_reinit,void,
-Function,+,furi_hal_bt_serial_notify_buffer_is_empty,void,
-Function,+,furi_hal_bt_serial_set_event_callback,void,"uint16_t, FuriHalBtSerialCallback, void*"
-Function,+,furi_hal_bt_serial_start,void,
-Function,+,furi_hal_bt_serial_stop,void,
-Function,+,furi_hal_bt_serial_tx,_Bool,"uint8_t*, uint16_t"
+Function,-,furi_hal_bt_serial_notify_buffer_is_empty,void,
+Function,-,furi_hal_bt_serial_set_event_callback,void,"uint16_t, FuriHalBtSerialCallback, void*"
+Function,-,furi_hal_bt_serial_start,void,
+Function,-,furi_hal_bt_serial_stop,void,
+Function,-,furi_hal_bt_serial_tx,_Bool,"uint8_t*, uint16_t"
 Function,+,furi_hal_bt_set_key_storage_change_callback,void,"BleGlueKeyStorageChangedCallback, void*"
 Function,+,furi_hal_bt_start_advertising,void,
 Function,+,furi_hal_bt_start_app,_Bool,"FuriHalBtProfile, GapEventCallback, void*"
@@ -984,18 +984,18 @@ Function,+,furi_hal_cdc_get_port_settings,usb_cdc_line_coding*,uint8_t
 Function,+,furi_hal_cdc_receive,int32_t,"uint8_t, uint8_t*, uint16_t"
 Function,+,furi_hal_cdc_send,void,"uint8_t, uint8_t*, uint16_t"
 Function,+,furi_hal_cdc_set_callbacks,void,"uint8_t, CdcCallbacks*, void*"
-Function,+,furi_hal_clock_deinit_early,void,
+Function,-,furi_hal_clock_deinit_early,void,
 Function,-,furi_hal_clock_init,void,
 Function,-,furi_hal_clock_init_early,void,
-Function,+,furi_hal_clock_resume_tick,void,
-Function,+,furi_hal_clock_suspend_tick,void,
-Function,+,furi_hal_clock_switch_to_hsi,void,
-Function,+,furi_hal_clock_switch_to_pll,void,
+Function,-,furi_hal_clock_resume_tick,void,
+Function,-,furi_hal_clock_suspend_tick,void,
+Function,-,furi_hal_clock_switch_to_hsi,void,
+Function,-,furi_hal_clock_switch_to_pll,void,
 Function,-,furi_hal_compress_alloc,FuriHalCompress*,uint16_t
 Function,-,furi_hal_compress_decode,_Bool,"FuriHalCompress*, uint8_t*, size_t, uint8_t*, size_t, size_t*"
 Function,-,furi_hal_compress_encode,_Bool,"FuriHalCompress*, uint8_t*, size_t, uint8_t*, size_t, size_t*"
 Function,-,furi_hal_compress_free,void,FuriHalCompress*
-Function,+,furi_hal_compress_icon_decode,void,"const uint8_t*, uint8_t**"
+Function,-,furi_hal_compress_icon_decode,void,"const uint8_t*, uint8_t**"
 Function,-,furi_hal_compress_icon_init,void,
 Function,+,furi_hal_console_disable,void,
 Function,+,furi_hal_console_enable,void,
@@ -1008,34 +1008,34 @@ Function,+,furi_hal_console_tx_with_new_line,void,"const uint8_t*, size_t"
 Function,+,furi_hal_cortex_delay_us,void,uint32_t
 Function,-,furi_hal_cortex_init_early,void,
 Function,+,furi_hal_cortex_instructions_per_microsecond,uint32_t,
-Function,+,furi_hal_crypto_decrypt,_Bool,"const uint8_t*, uint8_t*, size_t"
-Function,+,furi_hal_crypto_encrypt,_Bool,"const uint8_t*, uint8_t*, size_t"
+Function,-,furi_hal_crypto_decrypt,_Bool,"const uint8_t*, uint8_t*, size_t"
+Function,-,furi_hal_crypto_encrypt,_Bool,"const uint8_t*, uint8_t*, size_t"
 Function,-,furi_hal_crypto_init,void,
-Function,+,furi_hal_crypto_store_add_key,_Bool,"FuriHalCryptoKey*, uint8_t*"
-Function,+,furi_hal_crypto_store_load_key,_Bool,"uint8_t, const uint8_t*"
-Function,+,furi_hal_crypto_store_unload_key,_Bool,uint8_t
-Function,+,furi_hal_crypto_verify_enclave,_Bool,"uint8_t*, uint8_t*"
-Function,+,furi_hal_crypto_verify_key,_Bool,uint8_t
+Function,-,furi_hal_crypto_store_add_key,_Bool,"FuriHalCryptoKey*, uint8_t*"
+Function,-,furi_hal_crypto_store_load_key,_Bool,"uint8_t, const uint8_t*"
+Function,-,furi_hal_crypto_store_unload_key,_Bool,uint8_t
+Function,-,furi_hal_crypto_verify_enclave,_Bool,"uint8_t*, uint8_t*"
+Function,-,furi_hal_crypto_verify_key,_Bool,uint8_t
 Function,+,furi_hal_debug_disable,void,
 Function,+,furi_hal_debug_enable,void,
 Function,-,furi_hal_deinit_early,void,
-Function,+,furi_hal_flash_erase,_Bool,uint8_t
-Function,+,furi_hal_flash_get_base,size_t,
-Function,+,furi_hal_flash_get_cycles_count,size_t,
-Function,+,furi_hal_flash_get_free_end_address,const void*,
-Function,+,furi_hal_flash_get_free_page_count,size_t,
-Function,+,furi_hal_flash_get_free_page_start_address,size_t,
+Function,-,furi_hal_flash_erase,_Bool,uint8_t
+Function,-,furi_hal_flash_get_base,size_t,
+Function,-,furi_hal_flash_get_cycles_count,size_t,
+Function,-,furi_hal_flash_get_free_end_address,const void*,
+Function,-,furi_hal_flash_get_free_page_count,size_t,
+Function,-,furi_hal_flash_get_free_page_start_address,size_t,
 Function,-,furi_hal_flash_get_free_start_address,const void*,
 Function,-,furi_hal_flash_get_page_number,int16_t,size_t
-Function,+,furi_hal_flash_get_page_size,size_t,
-Function,+,furi_hal_flash_get_read_block_size,size_t,
-Function,+,furi_hal_flash_get_write_block_size,size_t,
+Function,-,furi_hal_flash_get_page_size,size_t,
+Function,-,furi_hal_flash_get_read_block_size,size_t,
+Function,-,furi_hal_flash_get_write_block_size,size_t,
 Function,-,furi_hal_flash_init,void,
 Function,-,furi_hal_flash_ob_apply,void,
 Function,-,furi_hal_flash_ob_get_raw_ptr,const FuriHalFlashRawOptionByteData*,
 Function,-,furi_hal_flash_ob_set_word,_Bool,"size_t, const uint32_t"
 Function,-,furi_hal_flash_program_page,_Bool,"const uint8_t, const uint8_t*, uint16_t"
-Function,+,furi_hal_flash_write_dword,_Bool,"size_t, uint64_t"
+Function,-,furi_hal_flash_write_dword,_Bool,"size_t, uint64_t"
 Function,+,furi_hal_gpio_add_int_callback,void,"const GpioPin*, GpioExtiCallback, void*"
 Function,+,furi_hal_gpio_disable_int_callback,void,const GpioPin*
 Function,+,furi_hal_gpio_enable_int_callback,void,const GpioPin*
@@ -1045,20 +1045,20 @@ Function,+,furi_hal_gpio_init_simple,void,"const GpioPin*, const GpioMode"
 Function,+,furi_hal_gpio_remove_int_callback,void,const GpioPin*
 Function,-,furi_hal_hid_consumer_key_press,_Bool,uint16_t
 Function,-,furi_hal_hid_consumer_key_release,_Bool,uint16_t
-Function,+,furi_hal_hid_get_led_state,uint8_t,
-Function,+,furi_hal_hid_is_connected,_Bool,
-Function,+,furi_hal_hid_kb_press,_Bool,uint16_t
-Function,+,furi_hal_hid_kb_release,_Bool,uint16_t
-Function,+,furi_hal_hid_kb_release_all,_Bool,
-Function,+,furi_hal_hid_mouse_move,_Bool,"int8_t, int8_t"
-Function,+,furi_hal_hid_mouse_press,_Bool,uint8_t
-Function,+,furi_hal_hid_mouse_release,_Bool,uint8_t
+Function,-,furi_hal_hid_get_led_state,uint8_t,
+Function,-,furi_hal_hid_is_connected,_Bool,
+Function,-,furi_hal_hid_kb_press,_Bool,uint16_t
+Function,-,furi_hal_hid_kb_release,_Bool,uint16_t
+Function,-,furi_hal_hid_kb_release_all,_Bool,
+Function,-,furi_hal_hid_mouse_move,_Bool,"int8_t, int8_t"
+Function,-,furi_hal_hid_mouse_press,_Bool,uint8_t
+Function,-,furi_hal_hid_mouse_release,_Bool,uint8_t
 Function,-,furi_hal_hid_mouse_scroll,_Bool,int8_t
-Function,+,furi_hal_hid_set_state_callback,void,"HidStateCallback, void*"
-Function,+,furi_hal_hid_u2f_get_request,uint32_t,uint8_t*
+Function,-,furi_hal_hid_set_state_callback,void,"HidStateCallback, void*"
+Function,-,furi_hal_hid_u2f_get_request,uint32_t,uint8_t*
 Function,-,furi_hal_hid_u2f_is_connected,_Bool,
-Function,+,furi_hal_hid_u2f_send_response,void,"uint8_t*, uint8_t"
-Function,+,furi_hal_hid_u2f_set_callback,void,"HidU2fCallback, void*"
+Function,-,furi_hal_hid_u2f_send_response,void,"uint8_t*, uint8_t"
+Function,-,furi_hal_hid_u2f_set_callback,void,"HidU2fCallback, void*"
 Function,+,furi_hal_i2c_acquire,void,FuriHalI2cBusHandle*
 Function,+,furi_hal_i2c_deinit_early,void,
 Function,-,furi_hal_i2c_init,void,
@@ -1174,13 +1174,13 @@ Function,+,furi_hal_power_suppress_charge_enter,void,
 Function,+,furi_hal_power_suppress_charge_exit,void,
 Function,+,furi_hal_random_fill_buf,void,"uint8_t*, uint32_t"
 Function,+,furi_hal_random_get,uint32_t,
-Function,+,furi_hal_region_get,const FuriHalRegion*,
-Function,+,furi_hal_region_get_band,const FuriHalRegionBand*,uint32_t
-Function,+,furi_hal_region_get_name,const char*,
+Function,-,furi_hal_region_get,const FuriHalRegion*,
+Function,-,furi_hal_region_get_band,const FuriHalRegionBand*,uint32_t
+Function,-,furi_hal_region_get_name,const char*,
 Function,-,furi_hal_region_init,void,
-Function,+,furi_hal_region_is_frequency_allowed,_Bool,uint32_t
-Function,+,furi_hal_region_is_provisioned,_Bool,
-Function,+,furi_hal_region_set,void,FuriHalRegion*
+Function,-,furi_hal_region_is_frequency_allowed,_Bool,uint32_t
+Function,-,furi_hal_region_is_provisioned,_Bool,
+Function,-,furi_hal_region_set,void,FuriHalRegion*
 Function,+,furi_hal_resources_deinit_early,void,
 Function,-,furi_hal_resources_init,void,
 Function,-,furi_hal_resources_init_early,void,
@@ -1283,16 +1283,16 @@ Function,+,furi_hal_uart_set_br,void,"FuriHalUartId, uint32_t"
 Function,+,furi_hal_uart_set_irq_cb,void,"FuriHalUartId, void (*)(UartIrqEvent, uint8_t, void*), void*"
 Function,+,furi_hal_uart_suspend,void,FuriHalUartId
 Function,+,furi_hal_uart_tx,void,"FuriHalUartId, uint8_t*, size_t"
-Function,+,furi_hal_usb_disable,void,
-Function,+,furi_hal_usb_enable,void,
-Function,+,furi_hal_usb_get_config,FuriHalUsbInterface*,
+Function,-,furi_hal_usb_disable,void,
+Function,-,furi_hal_usb_enable,void,
+Function,-,furi_hal_usb_get_config,FuriHalUsbInterface*,
 Function,-,furi_hal_usb_init,void,
-Function,+,furi_hal_usb_is_locked,_Bool,
-Function,+,furi_hal_usb_lock,void,
-Function,+,furi_hal_usb_reinit,void,
-Function,+,furi_hal_usb_set_config,_Bool,"FuriHalUsbInterface*, void*"
+Function,-,furi_hal_usb_is_locked,_Bool,
+Function,-,furi_hal_usb_lock,void,
+Function,-,furi_hal_usb_reinit,void,
+Function,-,furi_hal_usb_set_config,_Bool,"FuriHalUsbInterface*, void*"
 Function,-,furi_hal_usb_set_state_callback,void,"FuriHalUsbStateCallback, void*"
-Function,+,furi_hal_usb_unlock,void,
+Function,-,furi_hal_usb_unlock,void,
 Function,+,furi_hal_version_do_i_belong_here,_Bool,
 Function,+,furi_hal_version_get_ble_local_device_name_ptr,const char*,
 Function,+,furi_hal_version_get_ble_mac,const uint8_t*,
@@ -1479,8 +1479,8 @@ Function,-,infinity,double,
 Function,-,infinityf,float,
 Function,+,init_mutex,_Bool,"ValueMutex*, void*, size_t"
 Function,-,initstate,char*,"unsigned, char*, size_t"
-Function,+,input_get_key_name,const char*,InputKey
-Function,+,input_get_type_name,const char*,InputType
+Function,-,input_get_key_name,const char*,InputKey
+Function,-,input_get_type_name,const char*,InputType
 Function,+,int32_to_bytes,void,"uint32_t, uint8_t*, _Bool"
 Function,+,int64_to_bytes,void,"uint64_t, uint8_t*, _Bool"
 Function,-,iprintf,int,"const char*, ..."
@@ -1543,14 +1543,14 @@ Function,-,llrintl,long long int,long double
 Function,-,llround,long long int,double
 Function,-,llroundf,long long int,float
 Function,-,llroundl,long long int,long double
-Function,+,loader_get_pubsub,FuriPubSub*,Loader*
-Function,+,loader_is_locked,_Bool,Loader*
-Function,+,loader_lock,_Bool,Loader*
-Function,+,loader_show_game_menu,void,
-Function,+,loader_show_menu,void,
-Function,+,loader_start,LoaderStatus,"Loader*, const char*, const char*"
-Function,+,loader_unlock,void,Loader*
-Function,+,loader_update_menu,void,
+Function,-,loader_get_pubsub,FuriPubSub*,Loader*
+Function,-,loader_is_locked,_Bool,Loader*
+Function,-,loader_lock,_Bool,Loader*
+Function,-,loader_show_game_menu,void,
+Function,-,loader_show_menu,void,
+Function,-,loader_start,LoaderStatus,"Loader*, const char*, const char*"
+Function,-,loader_unlock,void,Loader*
+Function,-,loader_update_menu,void,
 Function,+,loading_alloc,Loading*,
 Function,+,loading_free,void,Loading*
 Function,+,loading_get_view,View*,Loading*
@@ -1638,12 +1638,12 @@ Function,-,nextafterl,long double,"long double, long double"
 Function,-,nexttoward,double,"double, long double"
 Function,-,nexttowardf,float,"float, long double"
 Function,-,nexttowardl,long double,"long double, long double"
-Function,+,nfca_append_crc16,void,"uint8_t*, uint16_t"
-Function,+,nfca_emulation_handler,_Bool,"uint8_t*, uint16_t, uint8_t*, uint16_t*"
-Function,+,nfca_get_crc16,uint16_t,"uint8_t*, uint16_t"
-Function,+,nfca_signal_alloc,NfcaSignal*,
-Function,+,nfca_signal_encode,void,"NfcaSignal*, uint8_t*, uint16_t, uint8_t*"
-Function,+,nfca_signal_free,void,NfcaSignal*
+Function,-,nfca_append_crc16,void,"uint8_t*, uint16_t"
+Function,-,nfca_emulation_handler,_Bool,"uint8_t*, uint16_t, uint8_t*, uint16_t*"
+Function,-,nfca_get_crc16,uint16_t,"uint8_t*, uint16_t"
+Function,-,nfca_signal_alloc,NfcaSignal*,
+Function,-,nfca_signal_encode,void,"NfcaSignal*, uint8_t*, uint16_t, uint8_t*"
+Function,-,nfca_signal_free,void,NfcaSignal*
 Function,+,notification_internal_message,void,"NotificationApp*, const NotificationSequence*"
 Function,+,notification_internal_message_block,void,"NotificationApp*, const NotificationSequence*"
 Function,+,notification_message,void,"NotificationApp*, const NotificationSequence*"
@@ -1719,12 +1719,12 @@ Function,+,pcTaskGetName,char*,TaskHandle_t
 Function,-,pcTimerGetName,const char*,TimerHandle_t
 Function,-,pclose,int,FILE*
 Function,-,perror,void,const char*
-Function,+,platformDisableIrqCallback,void,
-Function,+,platformEnableIrqCallback,void,
-Function,+,platformProtectST25RComm,void,
-Function,+,platformSetIrqCallback,void,PlatformIrqCallback
-Function,+,platformSpiTxRx,_Bool,"const uint8_t*, uint8_t*, uint16_t"
-Function,+,platformUnprotectST25RComm,void,
+Function,-,platformDisableIrqCallback,void,
+Function,-,platformEnableIrqCallback,void,
+Function,-,platformProtectST25RComm,void,
+Function,-,platformSetIrqCallback,void,PlatformIrqCallback
+Function,-,platformSpiTxRx,_Bool,"const uint8_t*, uint8_t*, uint16_t"
+Function,-,platformUnprotectST25RComm,void,
 Function,-,popen,FILE*,"const char*, const char*"
 Function,+,popup_alloc,Popup*,
 Function,+,popup_disable_timeout,void,Popup*
@@ -1743,11 +1743,11 @@ Function,-,pow,double,"double, double"
 Function,-,pow10,double,double
 Function,-,pow10f,float,float
 Function,-,power_enable_low_battery_level_notification,void,"Power*, _Bool"
-Function,+,power_get_info,void,"Power*, PowerInfo*"
-Function,+,power_get_pubsub,FuriPubSub*,Power*
-Function,+,power_is_battery_healthy,_Bool,Power*
-Function,+,power_off,void,Power*
-Function,+,power_reboot,void,PowerBootMode
+Function,-,power_get_info,void,"Power*, PowerInfo*"
+Function,-,power_get_pubsub,FuriPubSub*,Power*
+Function,-,power_is_battery_healthy,_Bool,Power*
+Function,-,power_off,void,Power*
+Function,-,power_reboot,void,PowerBootMode
 Function,+,powf,float,"float, float"
 Function,-,powl,long double,"long double, long double"
 Function,-,printf,int,"const char*, ..."
@@ -1788,119 +1788,119 @@ Function,-,rename,int,"const char*, const char*"
 Function,-,renameat,int,"int, const char*, int, const char*"
 Function,-,rewind,void,FILE*
 Function,-,rfalAdjustRegulators,ReturnCode,uint16_t*
-Function,+,rfalCalibrate,ReturnCode,
+Function,-,rfalCalibrate,ReturnCode,
 Function,-,rfalDeinitialize,ReturnCode,
 Function,-,rfalDisableObsvMode,void,
-Function,+,rfalFeliCaPoll,ReturnCode,"rfalFeliCaPollSlots, uint16_t, uint8_t, rfalFeliCaPollRes*, uint8_t, uint8_t*, uint8_t*"
-Function,+,rfalFieldOff,ReturnCode,
-Function,+,rfalFieldOnAndStartGT,ReturnCode,
-Function,+,rfalGetBitRate,ReturnCode,"rfalBitRate*, rfalBitRate*"
+Function,-,rfalFeliCaPoll,ReturnCode,"rfalFeliCaPollSlots, uint16_t, uint8_t, rfalFeliCaPollRes*, uint8_t, uint8_t*, uint8_t*"
+Function,-,rfalFieldOff,ReturnCode,
+Function,-,rfalFieldOnAndStartGT,ReturnCode,
+Function,-,rfalGetBitRate,ReturnCode,"rfalBitRate*, rfalBitRate*"
 Function,-,rfalGetErrorHandling,rfalEHandling,
 Function,-,rfalGetFDTListen,uint32_t,
-Function,+,rfalGetFDTPoll,uint32_t,
+Function,-,rfalGetFDTPoll,uint32_t,
 Function,-,rfalGetGT,uint32_t,
 Function,-,rfalGetMode,rfalMode,
 Function,-,rfalGetObsvMode,void,"uint8_t*, uint8_t*"
 Function,-,rfalGetTransceiveRSSI,ReturnCode,uint16_t*
 Function,-,rfalGetTransceiveState,rfalTransceiveState,
-Function,+,rfalGetTransceiveStatus,ReturnCode,
-Function,+,rfalISO14443ATransceiveAnticollisionFrame,ReturnCode,"uint8_t*, uint8_t*, uint8_t*, uint16_t*, uint32_t"
-Function,+,rfalISO14443ATransceiveShortFrame,ReturnCode,"rfal14443AShortFrameCmd, uint8_t*, uint8_t, uint16_t*, uint32_t"
-Function,+,rfalISO15693TransceiveAnticollisionFrame,ReturnCode,"uint8_t*, uint8_t, uint8_t*, uint8_t, uint16_t*"
+Function,-,rfalGetTransceiveStatus,ReturnCode,
+Function,-,rfalISO14443ATransceiveAnticollisionFrame,ReturnCode,"uint8_t*, uint8_t*, uint8_t*, uint16_t*, uint32_t"
+Function,-,rfalISO14443ATransceiveShortFrame,ReturnCode,"rfal14443AShortFrameCmd, uint8_t*, uint8_t, uint16_t*, uint32_t"
+Function,-,rfalISO15693TransceiveAnticollisionFrame,ReturnCode,"uint8_t*, uint8_t, uint8_t*, uint8_t, uint16_t*"
 Function,-,rfalISO15693TransceiveEOF,ReturnCode,"uint8_t*, uint8_t, uint16_t*"
-Function,+,rfalISO15693TransceiveEOFAnticollision,ReturnCode,"uint8_t*, uint8_t, uint16_t*"
-Function,+,rfalInitialize,ReturnCode,
-Function,+,rfalIsExtFieldOn,_Bool,
-Function,+,rfalIsGTExpired,_Bool,
-Function,+,rfalIsTransceiveInRx,_Bool,
-Function,+,rfalIsTransceiveInTx,_Bool,
+Function,-,rfalISO15693TransceiveEOFAnticollision,ReturnCode,"uint8_t*, uint8_t, uint16_t*"
+Function,-,rfalInitialize,ReturnCode,
+Function,-,rfalIsExtFieldOn,_Bool,
+Function,-,rfalIsGTExpired,_Bool,
+Function,-,rfalIsTransceiveInRx,_Bool,
+Function,-,rfalIsTransceiveInTx,_Bool,
 Function,-,rfalIsoDepATTRIB,ReturnCode,"const uint8_t*, uint8_t, rfalBitRate, rfalBitRate, rfalIsoDepFSxI, uint8_t, uint8_t, const uint8_t*, uint8_t, uint32_t, rfalIsoDepAttribRes*, uint8_t*"
-Function,+,rfalIsoDepDeselect,ReturnCode,
-Function,+,rfalIsoDepFSxI2FSx,uint16_t,uint8_t
-Function,+,rfalIsoDepFWI2FWT,uint32_t,uint8_t
-Function,+,rfalIsoDepGetApduTransceiveStatus,ReturnCode,
-Function,+,rfalIsoDepGetMaxInfLen,uint16_t,
-Function,+,rfalIsoDepGetTransceiveStatus,ReturnCode,
-Function,+,rfalIsoDepInitialize,void,
+Function,-,rfalIsoDepDeselect,ReturnCode,
+Function,-,rfalIsoDepFSxI2FSx,uint16_t,uint8_t
+Function,-,rfalIsoDepFWI2FWT,uint32_t,uint8_t
+Function,-,rfalIsoDepGetApduTransceiveStatus,ReturnCode,
+Function,-,rfalIsoDepGetMaxInfLen,uint16_t,
+Function,-,rfalIsoDepGetTransceiveStatus,ReturnCode,
+Function,-,rfalIsoDepInitialize,void,
 Function,-,rfalIsoDepInitializeWithParams,void,"rfalComplianceMode, uint8_t, uint8_t, uint8_t, uint8_t, uint8_t, uint8_t"
 Function,-,rfalIsoDepIsAttrib,_Bool,"const uint8_t*, uint8_t"
-Function,+,rfalIsoDepIsRats,_Bool,"const uint8_t*, uint8_t"
-Function,+,rfalIsoDepListenGetActivationStatus,ReturnCode,
-Function,+,rfalIsoDepListenStartActivation,ReturnCode,"rfalIsoDepAtsParam*, const rfalIsoDepAttribResParam*, const uint8_t*, uint16_t, rfalIsoDepListenActvParam"
+Function,-,rfalIsoDepIsRats,_Bool,"const uint8_t*, uint8_t"
+Function,-,rfalIsoDepListenGetActivationStatus,ReturnCode,
+Function,-,rfalIsoDepListenStartActivation,ReturnCode,"rfalIsoDepAtsParam*, const rfalIsoDepAttribResParam*, const uint8_t*, uint16_t, rfalIsoDepListenActvParam"
 Function,-,rfalIsoDepPPS,ReturnCode,"uint8_t, rfalBitRate, rfalBitRate, rfalIsoDepPpsRes*"
-Function,+,rfalIsoDepPollAGetActivationStatus,ReturnCode,
+Function,-,rfalIsoDepPollAGetActivationStatus,ReturnCode,
 Function,-,rfalIsoDepPollAHandleActivation,ReturnCode,"rfalIsoDepFSxI, uint8_t, rfalBitRate, rfalIsoDepDevice*"
-Function,+,rfalIsoDepPollAStartActivation,ReturnCode,"rfalIsoDepFSxI, uint8_t, rfalBitRate, rfalIsoDepDevice*"
-Function,+,rfalIsoDepPollBGetActivationStatus,ReturnCode,
+Function,-,rfalIsoDepPollAStartActivation,ReturnCode,"rfalIsoDepFSxI, uint8_t, rfalBitRate, rfalIsoDepDevice*"
+Function,-,rfalIsoDepPollBGetActivationStatus,ReturnCode,
 Function,-,rfalIsoDepPollBHandleActivation,ReturnCode,"rfalIsoDepFSxI, uint8_t, rfalBitRate, uint8_t, const rfalNfcbListenDevice*, const uint8_t*, uint8_t, rfalIsoDepDevice*"
-Function,+,rfalIsoDepPollBStartActivation,ReturnCode,"rfalIsoDepFSxI, uint8_t, rfalBitRate, uint8_t, const rfalNfcbListenDevice*, const uint8_t*, uint8_t, rfalIsoDepDevice*"
+Function,-,rfalIsoDepPollBStartActivation,ReturnCode,"rfalIsoDepFSxI, uint8_t, rfalBitRate, uint8_t, const rfalNfcbListenDevice*, const uint8_t*, uint8_t, rfalIsoDepDevice*"
 Function,-,rfalIsoDepPollHandleSParameters,ReturnCode,"rfalIsoDepDevice*, rfalBitRate, rfalBitRate"
 Function,-,rfalIsoDepRATS,ReturnCode,"rfalIsoDepFSxI, uint8_t, rfalIsoDepAts*, uint8_t*"
-Function,+,rfalIsoDepStartApduTransceive,ReturnCode,rfalIsoDepApduTxRxParam
-Function,+,rfalIsoDepStartTransceive,ReturnCode,rfalIsoDepTxRxParam
-Function,+,rfalListenGetState,rfalLmState,"_Bool*, rfalBitRate*"
-Function,+,rfalListenSetState,ReturnCode,rfalLmState
-Function,+,rfalListenSleepStart,ReturnCode,"rfalLmState, uint8_t*, uint16_t, uint16_t*"
-Function,+,rfalListenStart,ReturnCode,"uint32_t, const rfalLmConfPA*, const rfalLmConfPB*, const rfalLmConfPF*, uint8_t*, uint16_t, uint16_t*"
-Function,+,rfalListenStop,ReturnCode,
-Function,+,rfalLowPowerModeStart,ReturnCode,
-Function,+,rfalLowPowerModeStop,ReturnCode,
-Function,+,rfalNfcDataExchangeCustomStart,ReturnCode,"uint8_t*, uint16_t, uint8_t**, uint16_t**, uint32_t, uint32_t"
-Function,+,rfalNfcDataExchangeGetStatus,ReturnCode,
+Function,-,rfalIsoDepStartApduTransceive,ReturnCode,rfalIsoDepApduTxRxParam
+Function,-,rfalIsoDepStartTransceive,ReturnCode,rfalIsoDepTxRxParam
+Function,-,rfalListenGetState,rfalLmState,"_Bool*, rfalBitRate*"
+Function,-,rfalListenSetState,ReturnCode,rfalLmState
+Function,-,rfalListenSleepStart,ReturnCode,"rfalLmState, uint8_t*, uint16_t, uint16_t*"
+Function,-,rfalListenStart,ReturnCode,"uint32_t, const rfalLmConfPA*, const rfalLmConfPB*, const rfalLmConfPF*, uint8_t*, uint16_t, uint16_t*"
+Function,-,rfalListenStop,ReturnCode,
+Function,-,rfalLowPowerModeStart,ReturnCode,
+Function,-,rfalLowPowerModeStop,ReturnCode,
+Function,-,rfalNfcDataExchangeCustomStart,ReturnCode,"uint8_t*, uint16_t, uint8_t**, uint16_t**, uint32_t, uint32_t"
+Function,-,rfalNfcDataExchangeGetStatus,ReturnCode,
 Function,-,rfalNfcDataExchangeStart,ReturnCode,"uint8_t*, uint16_t, uint8_t**, uint16_t**, uint32_t, uint32_t"
-Function,+,rfalNfcDeactivate,ReturnCode,_Bool
-Function,+,rfalNfcDepATR,ReturnCode,"const rfalNfcDepAtrParam*, rfalNfcDepAtrRes*, uint8_t*"
+Function,-,rfalNfcDeactivate,ReturnCode,_Bool
+Function,-,rfalNfcDepATR,ReturnCode,"const rfalNfcDepAtrParam*, rfalNfcDepAtrRes*, uint8_t*"
 Function,-,rfalNfcDepCalculateRWT,uint32_t,uint8_t
-Function,+,rfalNfcDepDSL,ReturnCode,
-Function,+,rfalNfcDepGetPduTransceiveStatus,ReturnCode,
-Function,+,rfalNfcDepGetTransceiveStatus,ReturnCode,
-Function,+,rfalNfcDepInitialize,void,
-Function,+,rfalNfcDepInitiatorHandleActivation,ReturnCode,"rfalNfcDepAtrParam*, rfalBitRate, rfalNfcDepDevice*"
-Function,+,rfalNfcDepIsAtrReq,_Bool,"const uint8_t*, uint16_t, uint8_t*"
-Function,+,rfalNfcDepListenGetActivationStatus,ReturnCode,
-Function,+,rfalNfcDepListenStartActivation,ReturnCode,"const rfalNfcDepTargetParam*, const uint8_t*, uint16_t, rfalNfcDepListenActvParam"
-Function,+,rfalNfcDepPSL,ReturnCode,"uint8_t, uint8_t"
-Function,+,rfalNfcDepRLS,ReturnCode,
+Function,-,rfalNfcDepDSL,ReturnCode,
+Function,-,rfalNfcDepGetPduTransceiveStatus,ReturnCode,
+Function,-,rfalNfcDepGetTransceiveStatus,ReturnCode,
+Function,-,rfalNfcDepInitialize,void,
+Function,-,rfalNfcDepInitiatorHandleActivation,ReturnCode,"rfalNfcDepAtrParam*, rfalBitRate, rfalNfcDepDevice*"
+Function,-,rfalNfcDepIsAtrReq,_Bool,"const uint8_t*, uint16_t, uint8_t*"
+Function,-,rfalNfcDepListenGetActivationStatus,ReturnCode,
+Function,-,rfalNfcDepListenStartActivation,ReturnCode,"const rfalNfcDepTargetParam*, const uint8_t*, uint16_t, rfalNfcDepListenActvParam"
+Function,-,rfalNfcDepPSL,ReturnCode,"uint8_t, uint8_t"
+Function,-,rfalNfcDepRLS,ReturnCode,
 Function,-,rfalNfcDepSetDeactivatingCallback,void,rfalNfcDepDeactCallback
-Function,+,rfalNfcDepStartPduTransceive,ReturnCode,rfalNfcDepPduTxRxParam
-Function,+,rfalNfcDepStartTransceive,ReturnCode,const rfalNfcDepTxRxParam*
+Function,-,rfalNfcDepStartPduTransceive,ReturnCode,rfalNfcDepPduTxRxParam
+Function,-,rfalNfcDepStartTransceive,ReturnCode,const rfalNfcDepTxRxParam*
 Function,-,rfalNfcDepTargetRcvdATR,_Bool,
-Function,+,rfalNfcDiscover,ReturnCode,const rfalNfcDiscoverParam*
+Function,-,rfalNfcDiscover,ReturnCode,const rfalNfcDiscoverParam*
 Function,-,rfalNfcGetActiveDevice,ReturnCode,rfalNfcDevice**
-Function,+,rfalNfcGetDevicesFound,ReturnCode,"rfalNfcDevice**, uint8_t*"
-Function,+,rfalNfcGetState,rfalNfcState,
-Function,+,rfalNfcInitialize,ReturnCode,
-Function,+,rfalNfcSelect,ReturnCode,uint8_t
-Function,+,rfalNfcWorker,void,
-Function,+,rfalNfcaListenerIsSleepReq,_Bool,"const uint8_t*, uint16_t"
-Function,+,rfalNfcaPollerCheckPresence,ReturnCode,"rfal14443AShortFrameCmd, rfalNfcaSensRes*"
+Function,-,rfalNfcGetDevicesFound,ReturnCode,"rfalNfcDevice**, uint8_t*"
+Function,-,rfalNfcGetState,rfalNfcState,
+Function,-,rfalNfcInitialize,ReturnCode,
+Function,-,rfalNfcSelect,ReturnCode,uint8_t
+Function,-,rfalNfcWorker,void,
+Function,-,rfalNfcaListenerIsSleepReq,_Bool,"const uint8_t*, uint16_t"
+Function,-,rfalNfcaPollerCheckPresence,ReturnCode,"rfal14443AShortFrameCmd, rfalNfcaSensRes*"
 Function,-,rfalNfcaPollerFullCollisionResolution,ReturnCode,"rfalComplianceMode, uint8_t, rfalNfcaListenDevice*, uint8_t*"
-Function,+,rfalNfcaPollerGetFullCollisionResolutionStatus,ReturnCode,
-Function,+,rfalNfcaPollerInitialize,ReturnCode,
-Function,+,rfalNfcaPollerSelect,ReturnCode,"const uint8_t*, uint8_t, rfalNfcaSelRes*"
+Function,-,rfalNfcaPollerGetFullCollisionResolutionStatus,ReturnCode,
+Function,-,rfalNfcaPollerInitialize,ReturnCode,
+Function,-,rfalNfcaPollerSelect,ReturnCode,"const uint8_t*, uint8_t, rfalNfcaSelRes*"
 Function,-,rfalNfcaPollerSingleCollisionResolution,ReturnCode,"uint8_t, _Bool*, rfalNfcaSelRes*, uint8_t*, uint8_t*"
-Function,+,rfalNfcaPollerSleep,ReturnCode,
+Function,-,rfalNfcaPollerSleep,ReturnCode,
 Function,-,rfalNfcaPollerSleepFullCollisionResolution,ReturnCode,"uint8_t, rfalNfcaListenDevice*, uint8_t*"
-Function,+,rfalNfcaPollerStartFullCollisionResolution,ReturnCode,"rfalComplianceMode, uint8_t, rfalNfcaListenDevice*, uint8_t*"
-Function,+,rfalNfcaPollerTechnologyDetection,ReturnCode,"rfalComplianceMode, rfalNfcaSensRes*"
-Function,+,rfalNfcbPollerCheckPresence,ReturnCode,"rfalNfcbSensCmd, rfalNfcbSlots, rfalNfcbSensbRes*, uint8_t*"
-Function,+,rfalNfcbPollerCollisionResolution,ReturnCode,"rfalComplianceMode, uint8_t, rfalNfcbListenDevice*, uint8_t*"
-Function,+,rfalNfcbPollerInitialize,ReturnCode,
+Function,-,rfalNfcaPollerStartFullCollisionResolution,ReturnCode,"rfalComplianceMode, uint8_t, rfalNfcaListenDevice*, uint8_t*"
+Function,-,rfalNfcaPollerTechnologyDetection,ReturnCode,"rfalComplianceMode, rfalNfcaSensRes*"
+Function,-,rfalNfcbPollerCheckPresence,ReturnCode,"rfalNfcbSensCmd, rfalNfcbSlots, rfalNfcbSensbRes*, uint8_t*"
+Function,-,rfalNfcbPollerCollisionResolution,ReturnCode,"rfalComplianceMode, uint8_t, rfalNfcbListenDevice*, uint8_t*"
+Function,-,rfalNfcbPollerInitialize,ReturnCode,
 Function,-,rfalNfcbPollerInitializeWithParams,ReturnCode,"uint8_t, uint8_t"
-Function,+,rfalNfcbPollerSleep,ReturnCode,const uint8_t*
-Function,+,rfalNfcbPollerSlotMarker,ReturnCode,"uint8_t, rfalNfcbSensbRes*, uint8_t*"
-Function,+,rfalNfcbPollerSlottedCollisionResolution,ReturnCode,"rfalComplianceMode, uint8_t, rfalNfcbSlots, rfalNfcbSlots, rfalNfcbListenDevice*, uint8_t*, _Bool*"
-Function,+,rfalNfcbPollerTechnologyDetection,ReturnCode,"rfalComplianceMode, rfalNfcbSensbRes*, uint8_t*"
-Function,+,rfalNfcbTR2ToFDT,uint32_t,uint8_t
+Function,-,rfalNfcbPollerSleep,ReturnCode,const uint8_t*
+Function,-,rfalNfcbPollerSlotMarker,ReturnCode,"uint8_t, rfalNfcbSensbRes*, uint8_t*"
+Function,-,rfalNfcbPollerSlottedCollisionResolution,ReturnCode,"rfalComplianceMode, uint8_t, rfalNfcbSlots, rfalNfcbSlots, rfalNfcbListenDevice*, uint8_t*, _Bool*"
+Function,-,rfalNfcbPollerTechnologyDetection,ReturnCode,"rfalComplianceMode, rfalNfcbSensbRes*, uint8_t*"
+Function,-,rfalNfcbTR2ToFDT,uint32_t,uint8_t
 Function,-,rfalNfcfListenerIsT3TReq,_Bool,"const uint8_t*, uint16_t, uint8_t*"
 Function,-,rfalNfcfPollerCheck,ReturnCode,"const uint8_t*, const rfalNfcfServBlockListParam*, uint8_t*, uint16_t, uint16_t*"
-Function,+,rfalNfcfPollerCheckPresence,ReturnCode,
-Function,+,rfalNfcfPollerCollisionResolution,ReturnCode,"rfalComplianceMode, uint8_t, rfalNfcfListenDevice*, uint8_t*"
-Function,+,rfalNfcfPollerInitialize,ReturnCode,rfalBitRate
-Function,+,rfalNfcfPollerPoll,ReturnCode,"rfalFeliCaPollSlots, uint16_t, uint8_t, rfalFeliCaPollRes*, uint8_t*, uint8_t*"
+Function,-,rfalNfcfPollerCheckPresence,ReturnCode,
+Function,-,rfalNfcfPollerCollisionResolution,ReturnCode,"rfalComplianceMode, uint8_t, rfalNfcfListenDevice*, uint8_t*"
+Function,-,rfalNfcfPollerInitialize,ReturnCode,rfalBitRate
+Function,-,rfalNfcfPollerPoll,ReturnCode,"rfalFeliCaPollSlots, uint16_t, uint8_t, rfalFeliCaPollRes*, uint8_t*, uint8_t*"
 Function,-,rfalNfcfPollerUpdate,ReturnCode,"const uint8_t*, const rfalNfcfServBlockListParam*, uint8_t*, uint16_t, const uint8_t*, uint8_t*, uint16_t"
-Function,+,rfalNfcvPollerCheckPresence,ReturnCode,rfalNfcvInventoryRes*
-Function,+,rfalNfcvPollerCollisionResolution,ReturnCode,"rfalComplianceMode, uint8_t, rfalNfcvListenDevice*, uint8_t*"
+Function,-,rfalNfcvPollerCheckPresence,ReturnCode,rfalNfcvInventoryRes*
+Function,-,rfalNfcvPollerCollisionResolution,ReturnCode,"rfalComplianceMode, uint8_t, rfalNfcvListenDevice*, uint8_t*"
 Function,-,rfalNfcvPollerExtendedGetSystemInformation,ReturnCode,"uint8_t, const uint8_t*, uint8_t, uint8_t*, uint16_t, uint16_t*"
 Function,-,rfalNfcvPollerExtendedLockSingleBlock,ReturnCode,"uint8_t, const uint8_t*, uint16_t"
 Function,-,rfalNfcvPollerExtendedReadMultipleBlocks,ReturnCode,"uint8_t, const uint8_t*, uint16_t, uint16_t, uint8_t*, uint16_t, uint16_t*"
@@ -1908,8 +1908,8 @@ Function,-,rfalNfcvPollerExtendedReadSingleBlock,ReturnCode,"uint8_t, const uint
 Function,-,rfalNfcvPollerExtendedWriteMultipleBlocks,ReturnCode,"uint8_t, const uint8_t*, uint16_t, uint16_t, uint8_t*, uint16_t, uint8_t, const uint8_t*, uint16_t"
 Function,-,rfalNfcvPollerExtendedWriteSingleBlock,ReturnCode,"uint8_t, const uint8_t*, uint16_t, const uint8_t*, uint8_t"
 Function,-,rfalNfcvPollerGetSystemInformation,ReturnCode,"uint8_t, const uint8_t*, uint8_t*, uint16_t, uint16_t*"
-Function,+,rfalNfcvPollerInitialize,ReturnCode,
-Function,+,rfalNfcvPollerInventory,ReturnCode,"rfalNfcvNumSlots, uint8_t, const uint8_t*, rfalNfcvInventoryRes*, uint16_t*"
+Function,-,rfalNfcvPollerInitialize,ReturnCode,
+Function,-,rfalNfcvPollerInventory,ReturnCode,"rfalNfcvNumSlots, uint8_t, const uint8_t*, rfalNfcvInventoryRes*, uint16_t*"
 Function,-,rfalNfcvPollerLockBlock,ReturnCode,"uint8_t, const uint8_t*, uint8_t"
 Function,-,rfalNfcvPollerReadMultipleBlocks,ReturnCode,"uint8_t, const uint8_t*, uint8_t, uint8_t, uint8_t*, uint16_t, uint16_t*"
 Function,-,rfalNfcvPollerReadSingleBlock,ReturnCode,"uint8_t, const uint8_t*, uint8_t, uint8_t*, uint16_t, uint16_t*"
@@ -1919,45 +1919,45 @@ Function,-,rfalNfcvPollerSleepCollisionResolution,ReturnCode,"uint8_t, rfalNfcvL
 Function,-,rfalNfcvPollerTransceiveReq,ReturnCode,"uint8_t, uint8_t, uint8_t, const uint8_t*, const uint8_t*, uint16_t, uint8_t*, uint16_t, uint16_t*"
 Function,-,rfalNfcvPollerWriteMultipleBlocks,ReturnCode,"uint8_t, const uint8_t*, uint8_t, uint8_t, uint8_t*, uint16_t, uint8_t, const uint8_t*, uint16_t"
 Function,-,rfalNfcvPollerWriteSingleBlock,ReturnCode,"uint8_t, const uint8_t*, uint8_t, const uint8_t*, uint8_t"
-Function,+,rfalSetBitRate,ReturnCode,"rfalBitRate, rfalBitRate"
-Function,+,rfalSetErrorHandling,void,rfalEHandling
-Function,+,rfalSetFDTListen,void,uint32_t
-Function,+,rfalSetFDTPoll,void,uint32_t
-Function,+,rfalSetGT,void,uint32_t
-Function,+,rfalSetMode,ReturnCode,"rfalMode, rfalBitRate, rfalBitRate"
+Function,-,rfalSetBitRate,ReturnCode,"rfalBitRate, rfalBitRate"
+Function,-,rfalSetErrorHandling,void,rfalEHandling
+Function,-,rfalSetFDTListen,void,uint32_t
+Function,-,rfalSetFDTPoll,void,uint32_t
+Function,-,rfalSetGT,void,uint32_t
+Function,-,rfalSetMode,ReturnCode,"rfalMode, rfalBitRate, rfalBitRate"
 Function,-,rfalSetObsvMode,void,"uint8_t, uint8_t"
 Function,-,rfalSetPostTxRxCallback,void,rfalPostTxRxCallback
 Function,-,rfalSetPreTxRxCallback,void,rfalPreTxRxCallback
-Function,+,rfalSetUpperLayerCallback,void,rfalUpperLayerCallback
-Function,+,rfalSt25tbPollerCheckPresence,ReturnCode,uint8_t*
-Function,+,rfalSt25tbPollerCollisionResolution,ReturnCode,"uint8_t, rfalSt25tbListenDevice*, uint8_t*"
+Function,-,rfalSetUpperLayerCallback,void,rfalUpperLayerCallback
+Function,-,rfalSt25tbPollerCheckPresence,ReturnCode,uint8_t*
+Function,-,rfalSt25tbPollerCollisionResolution,ReturnCode,"uint8_t, rfalSt25tbListenDevice*, uint8_t*"
 Function,-,rfalSt25tbPollerCompletion,ReturnCode,
-Function,+,rfalSt25tbPollerGetUID,ReturnCode,rfalSt25tbUID*
-Function,+,rfalSt25tbPollerInitialize,ReturnCode,
-Function,+,rfalSt25tbPollerInitiate,ReturnCode,uint8_t*
-Function,+,rfalSt25tbPollerPcall,ReturnCode,uint8_t*
+Function,-,rfalSt25tbPollerGetUID,ReturnCode,rfalSt25tbUID*
+Function,-,rfalSt25tbPollerInitialize,ReturnCode,
+Function,-,rfalSt25tbPollerInitiate,ReturnCode,uint8_t*
+Function,-,rfalSt25tbPollerPcall,ReturnCode,uint8_t*
 Function,-,rfalSt25tbPollerReadBlock,ReturnCode,"uint8_t, rfalSt25tbBlock*"
 Function,-,rfalSt25tbPollerResetToInventory,ReturnCode,
-Function,+,rfalSt25tbPollerSelect,ReturnCode,uint8_t
-Function,+,rfalSt25tbPollerSlotMarker,ReturnCode,"uint8_t, uint8_t*"
+Function,-,rfalSt25tbPollerSelect,ReturnCode,uint8_t
+Function,-,rfalSt25tbPollerSlotMarker,ReturnCode,"uint8_t, uint8_t*"
 Function,-,rfalSt25tbPollerWriteBlock,ReturnCode,"uint8_t, const rfalSt25tbBlock*"
-Function,+,rfalStartTransceive,ReturnCode,const rfalTransceiveContext*
-Function,+,rfalT1TPollerInitialize,ReturnCode,
+Function,-,rfalStartTransceive,ReturnCode,const rfalTransceiveContext*
+Function,-,rfalT1TPollerInitialize,ReturnCode,
 Function,-,rfalT1TPollerRall,ReturnCode,"const uint8_t*, uint8_t*, uint16_t, uint16_t*"
-Function,+,rfalT1TPollerRid,ReturnCode,rfalT1TRidRes*
+Function,-,rfalT1TPollerRid,ReturnCode,rfalT1TRidRes*
 Function,-,rfalT1TPollerWrite,ReturnCode,"const uint8_t*, uint8_t, uint8_t"
-Function,+,rfalTransceiveBitsBlockingTx,ReturnCode,"uint8_t*, uint16_t, uint8_t*, uint16_t, uint16_t*, uint32_t, uint32_t"
-Function,+,rfalTransceiveBlockingRx,ReturnCode,
-Function,+,rfalTransceiveBlockingTx,ReturnCode,"uint8_t*, uint16_t, uint8_t*, uint16_t, uint16_t*, uint32_t, uint32_t"
-Function,+,rfalTransceiveBlockingTxRx,ReturnCode,"uint8_t*, uint16_t, uint8_t*, uint16_t, uint16_t*, uint32_t, uint32_t"
-Function,+,rfalWakeUpModeHasWoke,_Bool,
-Function,+,rfalWakeUpModeStart,ReturnCode,const rfalWakeUpConfig*
-Function,+,rfalWakeUpModeStop,ReturnCode,
-Function,+,rfalWorker,void,
-Function,+,rfal_platform_spi_acquire,void,
-Function,+,rfal_platform_spi_release,void,
+Function,-,rfalTransceiveBitsBlockingTx,ReturnCode,"uint8_t*, uint16_t, uint8_t*, uint16_t, uint16_t*, uint32_t, uint32_t"
+Function,-,rfalTransceiveBlockingRx,ReturnCode,
+Function,-,rfalTransceiveBlockingTx,ReturnCode,"uint8_t*, uint16_t, uint8_t*, uint16_t, uint16_t*, uint32_t, uint32_t"
+Function,-,rfalTransceiveBlockingTxRx,ReturnCode,"uint8_t*, uint16_t, uint8_t*, uint16_t, uint16_t*, uint32_t, uint32_t"
+Function,-,rfalWakeUpModeHasWoke,_Bool,
+Function,-,rfalWakeUpModeStart,ReturnCode,const rfalWakeUpConfig*
+Function,-,rfalWakeUpModeStop,ReturnCode,
+Function,-,rfalWorker,void,
+Function,-,rfal_platform_spi_acquire,void,
+Function,-,rfal_platform_spi_release,void,
 Function,-,rfal_set_callback_context,void,void*
-Function,+,rfal_set_state_changed_callback,void,RfalStateChangedCallback
+Function,-,rfal_set_state_changed_callback,void,RfalStateChangedCallback
 Function,-,rindex,char*,"const char*, int"
 Function,-,rint,double,double
 Function,-,rintf,float,float
@@ -2177,12 +2177,12 @@ Function,-,strupr,char*,char*
 Function,-,strverscmp,int,"const char*, const char*"
 Function,-,strxfrm,size_t,"char*, const char*, size_t"
 Function,-,strxfrm_l,size_t,"char*, const char*, size_t, locale_t"
-Function,+,subghz_environment_alloc,SubGhzEnvironment*,
-Function,+,subghz_environment_free,void,SubGhzEnvironment*
+Function,-,subghz_environment_alloc,SubGhzEnvironment*,
+Function,-,subghz_environment_free,void,SubGhzEnvironment*
 Function,-,subghz_environment_get_came_atomo_rainbow_table_file_name,const char*,SubGhzEnvironment*
 Function,-,subghz_environment_get_keystore,SubGhzKeystore*,SubGhzEnvironment*
 Function,-,subghz_environment_get_nice_flor_s_rainbow_table_file_name,const char*,SubGhzEnvironment*
-Function,+,subghz_environment_load_keystore,_Bool,"SubGhzEnvironment*, const char*"
+Function,-,subghz_environment_load_keystore,_Bool,"SubGhzEnvironment*, const char*"
 Function,-,subghz_environment_set_came_atomo_rainbow_table_file_name,void,"SubGhzEnvironment*, const char*"
 Function,-,subghz_environment_set_nice_flor_s_rainbow_table_file_name,void,"SubGhzEnvironment*, const char*"
 Function,-,subghz_keystore_alloc,SubGhzKeystore*,
@@ -2195,40 +2195,40 @@ Function,-,subghz_keystore_save,_Bool,"SubGhzKeystore*, const char*, uint8_t*"
 Function,-,subghz_protocol_decoder_base_deserialize,_Bool,"SubGhzProtocolDecoderBase*, FlipperFormat*"
 Function,-,subghz_protocol_decoder_base_get_hash_data,uint8_t,SubGhzProtocolDecoderBase*
 Function,-,subghz_protocol_decoder_base_get_string,_Bool,"SubGhzProtocolDecoderBase*, string_t"
-Function,+,subghz_protocol_decoder_base_serialize,_Bool,"SubGhzProtocolDecoderBase*, FlipperFormat*, SubGhzPresetDefinition*"
+Function,-,subghz_protocol_decoder_base_serialize,_Bool,"SubGhzProtocolDecoderBase*, FlipperFormat*, SubGhzPresetDefinition*"
 Function,-,subghz_protocol_decoder_base_set_decoder_callback,void,"SubGhzProtocolDecoderBase*, SubGhzProtocolDecoderBaseRxCallback, void*"
-Function,+,subghz_receiver_alloc_init,SubGhzReceiver*,SubGhzEnvironment*
-Function,+,subghz_receiver_decode,void,"SubGhzReceiver*, _Bool, uint32_t"
-Function,+,subghz_receiver_free,void,SubGhzReceiver*
-Function,+,subghz_receiver_get_filter,SubGhzProtocolFlag,SubGhzReceiver*
-Function,+,subghz_receiver_reset,void,SubGhzReceiver*
-Function,+,subghz_receiver_search_decoder_base_by_name,SubGhzProtocolDecoderBase*,"SubGhzReceiver*, const char*"
-Function,+,subghz_receiver_set_filter,void,"SubGhzReceiver*, SubGhzProtocolFlag"
-Function,+,subghz_receiver_set_rx_callback,void,"SubGhzReceiver*, SubGhzReceiverCallback, void*"
-Function,+,subghz_transmitter_alloc_init,SubGhzTransmitter*,"SubGhzEnvironment*, const char*"
-Function,+,subghz_transmitter_deserialize,_Bool,"SubGhzTransmitter*, FlipperFormat*"
-Function,+,subghz_transmitter_free,void,SubGhzTransmitter*
-Function,+,subghz_transmitter_get_protocol_instance,SubGhzProtocolEncoderBase*,SubGhzTransmitter*
-Function,+,subghz_transmitter_stop,_Bool,SubGhzTransmitter*
-Function,+,subghz_transmitter_yield,LevelDuration,void*
-Function,+,subghz_tx_rx_worker_alloc,SubGhzTxRxWorker*,
-Function,+,subghz_tx_rx_worker_available,size_t,SubGhzTxRxWorker*
-Function,+,subghz_tx_rx_worker_free,void,SubGhzTxRxWorker*
-Function,+,subghz_tx_rx_worker_is_running,_Bool,SubGhzTxRxWorker*
-Function,+,subghz_tx_rx_worker_read,size_t,"SubGhzTxRxWorker*, uint8_t*, size_t"
-Function,+,subghz_tx_rx_worker_set_callback_have_read,void,"SubGhzTxRxWorker*, SubGhzTxRxWorkerCallbackHaveRead, void*"
-Function,+,subghz_tx_rx_worker_start,_Bool,"SubGhzTxRxWorker*, uint32_t"
-Function,+,subghz_tx_rx_worker_stop,void,SubGhzTxRxWorker*
-Function,+,subghz_tx_rx_worker_write,_Bool,"SubGhzTxRxWorker*, uint8_t*, size_t"
-Function,+,subghz_worker_alloc,SubGhzWorker*,
-Function,+,subghz_worker_free,void,SubGhzWorker*
-Function,+,subghz_worker_is_running,_Bool,SubGhzWorker*
-Function,+,subghz_worker_rx_callback,void,"_Bool, uint32_t, void*"
-Function,+,subghz_worker_set_context,void,"SubGhzWorker*, void*"
-Function,+,subghz_worker_set_overrun_callback,void,"SubGhzWorker*, SubGhzWorkerOverrunCallback"
-Function,+,subghz_worker_set_pair_callback,void,"SubGhzWorker*, SubGhzWorkerPairCallback"
-Function,+,subghz_worker_start,void,SubGhzWorker*
-Function,+,subghz_worker_stop,void,SubGhzWorker*
+Function,-,subghz_receiver_alloc_init,SubGhzReceiver*,SubGhzEnvironment*
+Function,-,subghz_receiver_decode,void,"SubGhzReceiver*, _Bool, uint32_t"
+Function,-,subghz_receiver_free,void,SubGhzReceiver*
+Function,-,subghz_receiver_get_filter,SubGhzProtocolFlag,SubGhzReceiver*
+Function,-,subghz_receiver_reset,void,SubGhzReceiver*
+Function,-,subghz_receiver_search_decoder_base_by_name,SubGhzProtocolDecoderBase*,"SubGhzReceiver*, const char*"
+Function,-,subghz_receiver_set_filter,void,"SubGhzReceiver*, SubGhzProtocolFlag"
+Function,-,subghz_receiver_set_rx_callback,void,"SubGhzReceiver*, SubGhzReceiverCallback, void*"
+Function,-,subghz_transmitter_alloc_init,SubGhzTransmitter*,"SubGhzEnvironment*, const char*"
+Function,-,subghz_transmitter_deserialize,_Bool,"SubGhzTransmitter*, FlipperFormat*"
+Function,-,subghz_transmitter_free,void,SubGhzTransmitter*
+Function,-,subghz_transmitter_get_protocol_instance,SubGhzProtocolEncoderBase*,SubGhzTransmitter*
+Function,-,subghz_transmitter_stop,_Bool,SubGhzTransmitter*
+Function,-,subghz_transmitter_yield,LevelDuration,void*
+Function,-,subghz_tx_rx_worker_alloc,SubGhzTxRxWorker*,
+Function,-,subghz_tx_rx_worker_available,size_t,SubGhzTxRxWorker*
+Function,-,subghz_tx_rx_worker_free,void,SubGhzTxRxWorker*
+Function,-,subghz_tx_rx_worker_is_running,_Bool,SubGhzTxRxWorker*
+Function,-,subghz_tx_rx_worker_read,size_t,"SubGhzTxRxWorker*, uint8_t*, size_t"
+Function,-,subghz_tx_rx_worker_set_callback_have_read,void,"SubGhzTxRxWorker*, SubGhzTxRxWorkerCallbackHaveRead, void*"
+Function,-,subghz_tx_rx_worker_start,_Bool,"SubGhzTxRxWorker*, uint32_t"
+Function,-,subghz_tx_rx_worker_stop,void,SubGhzTxRxWorker*
+Function,-,subghz_tx_rx_worker_write,_Bool,"SubGhzTxRxWorker*, uint8_t*, size_t"
+Function,-,subghz_worker_alloc,SubGhzWorker*,
+Function,-,subghz_worker_free,void,SubGhzWorker*
+Function,-,subghz_worker_is_running,_Bool,SubGhzWorker*
+Function,-,subghz_worker_rx_callback,void,"_Bool, uint32_t, void*"
+Function,-,subghz_worker_set_context,void,"SubGhzWorker*, void*"
+Function,-,subghz_worker_set_overrun_callback,void,"SubGhzWorker*, SubGhzWorkerOverrunCallback"
+Function,-,subghz_worker_set_pair_callback,void,"SubGhzWorker*, SubGhzWorkerPairCallback"
+Function,-,subghz_worker_start,void,SubGhzWorker*
+Function,-,subghz_worker_stop,void,SubGhzWorker*
 Function,+,submenu_add_item,void,"Submenu*, const char*, uint32_t, SubmenuItemCallback, void*"
 Function,+,submenu_alloc,Submenu*,
 Function,+,submenu_free,void,Submenu*
@@ -2277,9 +2277,9 @@ Function,+,text_input_set_validator,void,"TextInput*, TextInputValidatorCallback
 Function,-,tgamma,double,double
 Function,-,tgammaf,float,float
 Function,-,tgammal,long double,long double
-Function,+,timerCalculateTimer,uint32_t,uint16_t
+Function,-,timerCalculateTimer,uint32_t,uint16_t
 Function,-,timerDelay,void,uint16_t
-Function,+,timerIsExpired,_Bool,uint32_t
+Function,-,timerIsExpired,_Bool,uint32_t
 Function,-,timerStopwatchMeasure,uint32_t,
 Function,-,timerStopwatchStart,void,
 Function,-,timingsafe_bcmp,int,"const void*, const void*, size_t"
