@@ -269,7 +269,7 @@ int toMinFen(char* fen, Position* position) {
             emptyCount++;
         } else {
             if(emptyCount != 0) {
-                snprintf(&fen[charCount++], 2, "%d", (int) emptyCount);
+                snprintf(&fen[charCount++], 2, "%d", emptyCount);
                 emptyCount = 0;
             }
             fen[charCount++] = bb2char(bb, &(position->board));
@@ -278,7 +278,7 @@ int toMinFen(char* fen, Position* position) {
         file++;
         if(file > 7) {
             if(emptyCount != 0) {
-                snprintf(&fen[charCount++], 2, "%d", (int) emptyCount);
+                snprintf(&fen[charCount++], 2, "%d", emptyCount);
                 emptyCount = 0;
             }
             file = 0;
