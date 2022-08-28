@@ -24,6 +24,7 @@ App(
         "subghz",
         "bad_usb",
         "u2f",
+        "elf_loader",
     ],
 )
 
@@ -97,7 +98,6 @@ App(
     name="Custom applications for main menu",
     apptype=FlipperAppType.METAPACKAGE,
     provides=[
-        "elf_loader",
         "APPS_wifi_deauther",
         "INTAPP_WiFiScanner",
         "INTAPP_Picopass",
