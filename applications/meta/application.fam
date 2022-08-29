@@ -82,9 +82,9 @@ App(
     name="Wifi applications for plug-in menu",
     apptype=FlipperAppType.METAPACKAGE,
     provides=[
-        # "wifi_marauder",
-        # "APPS_wifi_deauther",
-        # "INTAPP_WiFiScanner",
+        "wifi_marauder",
+        "APPS_wifi_deauther",
+        "INTAPP_WiFiScanner",
     ],
 )
 
